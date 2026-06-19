@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover King — Premium Mobile Cases</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --obsidian: #0A0A0F;
+    --obsidian-mid: #12121A;
+    --obsidian-light: #1C1C28;
+    --gold: #C9A96E;
+    --gold-light: #E2C98A;
+    --gold-pale: #F5ECD8;
+    --pearl: #F5F0E8;
+    --slate: #8A8FA0;
+    --white: #FFFFFF;
+    --border: rgba(201,169,110,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--obsidian);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announcement {
+    background: var(--gold);
+    color: var(--obsidian);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 32px;
+    left: 0; right: 0;
+    z-index: 100;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,15,0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-crown {
+    width: 28px; height: 28px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255,255,255,0.75);
+    transition: color 0.25s;
+    font-size: 18px;
+    padding: 4px;
+  }
+  .nav-icon:hover { color: var(--gold); }
+
+  .nav-cart-count {
+    background: var(--gold);
+    color: var(--obsidian);
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+    width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center;
+    position: absolute;
+    top: -4px; right: -4px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: radial-gradient(ellipse 90% 60% at 60% 40%, #1E1830 0%, var(--obsidian) 70%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 80px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle 600px at 65% 50%, rgba(201,169,110,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Grid lines */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 5.5vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--slate);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    max-width: 420px;
+    margin-bottom: 44px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--obsidian);
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    padding: 13px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* Crown visual */
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 520px;
+  }
+
+  .crown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .crown-glow {
+    position: absolute;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.7; }
+  }
+
+  .crown-ring {
+    position: absolute;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 50%;
+    animation: ring-expand 3s ease-in-out infinite;
+  }
+  .crown-ring-1 { width: 280px; height: 280px; animation-delay: 0s; }
+  .crown-ring-2 { width: 360px; height: 360px; animation-delay: 0.5s; }
+  .crown-ring-3 { width: 440px; height: 440px; animation-delay: 1s; }
+
+  @keyframes ring-expand {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.1; }
+  }
+
+  .crown-svg {
+    position: relative;
+    z-index: 2;
+    width: 200px;
+    filter: drop-shadow(0 0 40px rgba(201,169,110,0.5));
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* Phone mockups around crown */
+  .phone-float {
+    position: absolute;
+    background: linear-gradient(145deg, #1E1E2E, #2A2A3E);
+    border-radius: 22px;
+    border: 1px solid rgba(201,169,110,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .phone-float::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(201,169,110,0.08) 0%, transparent 60%);
+  }
+
+  .phone-1 { width: 90px; height: 170px; top: 40px; left: -20px; transform: rotate(-8deg); animation: float 4s ease-in-out infinite 0.5s; }
+  .phone-2 { width: 80px; height: 155px; bottom: 60px; left: 10px; transform: rotate(5deg); animation: float 4s ease-in-out infinite 1s; }
+  .phone-3 { width: 85px; height: 165px; top: 50px; right: -10px; transform: rotate(6deg); animation: float 4s ease-in-out infinite 1.5s; }
+  .phone-4 { width: 75px; height: 150px; bottom: 70px; right: 20px; transform: rotate(-5deg); animation: float 4s ease-in-out infinite 2s; }
+
+  .phone-case-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 12px;
+    text-align: center;
+  }
+
+  .phone-case-pattern {
+    position: absolute;
+    top: 20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0.6;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-section {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--obsidian);
+  }
+
+  .marquee-dot {
+    width: 4px; height: 4px;
+    background: var(--obsidian);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION COMMONS ── */
+  section {
+    padding: 100px 80px;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+  }
+
+  /* ── CATEGORIES ── */
+  .categories { background: var(--obsidian-mid); }
+
+  .categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .category-card {
+    background: var(--obsidian-mid);
+    padding: 40px 32px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: block;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .category-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    z-index: 1;
+  }
+
+  .category-card:hover .category-icon {
+    color: var(--gold);
+    transform: scale(1.15);
+  }
+
+  .category-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+    transition: color 0.3s, transform 0.3s;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .category-count {
+    font-size: 12px;
+    color: var(--slate);
+    letter-spacing: 0.05em;
+  }
+
+  .category-arrow {
+    position: absolute;
+    bottom: 32px; right: 32px;
+    color: var(--gold);
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .category-card:hover .category-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ── PRODUCTS ── */
+  .products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+  }
+
+  .products-filters {
+    display: flex;
+    gap: 4px;
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--slate);
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--gold);
+    color: var(--obsidian);
+    border-color: var(--gold);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    background: var(--obsidian-light);
+    border: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+  }
+
+  .product-card:hover {
+    border-color: var(--border);
+    transform: translateY(-6px);
+  }
+
+  .product-card:hover .product-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 16px; left: 16px;
+    z-index: 2;
+    background: var(--gold);
+    color: var(--obsidian);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+
+  .product-image-wrap {
+    position: relative;
+    height: 260px;
+    background: var(--obsidian-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-placeholder {
+    font-size: 72px;
+    opacity: 0.2;
+    transition: transform 0.4s;
+  }
+
+  .product-card:hover .product-placeholder {
+    transform: scale(1.1);
+  }
+
+  /* Subtle gradient overlay on hover */
+  .product-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(10,10,15,0.4));
+  }
+
+  .product-info {
+    padding: 20px 20px 24px;
+  }
+
+  .product-brand {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .product-prices {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .product-price {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .product-price-old {
+    font-size: 12px;
+    color: var(--slate);
+    text-decoration: line-through;
+  }
+
+  .product-cta {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: var(--gold);
+    color: var(--obsidian);
+    text-align: center;
+    padding: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  /* ── BRANDS SECTION ── */
+  .brands { background: var(--obsidian-mid); }
+
+  .brands-inner {
+    border: 1px solid var(--border);
+    padding: 60px;
+  }
+
+  .brands-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .brands-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 12px;
+  }
+
+  .brands-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .brand-logo:hover { color: var(--gold); }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 64px;
+  }
+
+  .feature-card {
+    background: var(--obsidian);
+    padding: 48px 40px;
+  }
+
+  .feature-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--gold);
+  }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--obsidian-light); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .testimonial-card {
+    background: var(--obsidian-mid);
+    padding: 36px 32px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px; left: 24px;
+    line-height: 1;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+
+  .star { color: var(--gold); font-size: 13px; }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--obsidian-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--obsidian);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .author-city {
+    font-size: 12px;
+    color: var(--slate);
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, #1A1528 0%, #0A0A0F 50%, #1A1528 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-banner .section-title {
+    font-size: clamp(36px, 4vw, 56px);
+    position: relative;
+  }
+
+  .cta-banner .section-subtitle {
+    max-width: 520px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  .cta-banner .btn-primary {
+    position: relative;
+    font-size: 14px;
+    padding: 16px 40px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060609;
+    padding: 80px 80px 40px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--slate);
+    margin: 16px 0 24px;
+    max-width: 280px;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-contact-item {
+    font-size: 13px;
+    color: var(--slate);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-contact-item span { color: var(--gold); }
+
+  .footer-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    color: var(--slate);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.25s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--slate);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+
+  .social-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .hero { padding: 100px 40px 60px; grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    section { padding: 72px 40px; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    footer { padding: 60px 40px 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    nav { padding: 0 20px; }
+    .hero { padding: 90px 24px 48px; }
+    section { padding: 56px 24px; }
+    .categories-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .brands-row { gap: 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    footer { padding: 48px 24px 24px; }
+    .cta-banner { padding: 64px 24px; }
+    .hero-stats { gap: 24px; }
+    .brands-inner { padding: 32px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .crown-svg, .phone-float, .crown-glow { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  ✦ Free Shipping Across India on Orders Above ₹2,000 &nbsp;·&nbsp; New iPhone 17 Cases Now In Stock ✦
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-bg"></div>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-crown" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 28 L4 24 L8 12 L14 20 L20 6 L26 20 L32 12 L36 24 L36 28 Z" fill="#C9A96E"/>
+      <rect x="4" y="28" width="32" height="3" rx="1" fill="#C9A96E"/>
+      <circle cx="20" cy="6" r="2.5" fill="#E2C98A"/>
+      <circle cx="8" cy="12" r="2" fill="#C9A96E"/>
+      <circle cx="32" cy="12" r="2" fill="#C9A96E"/>
+    </svg>
+    <span class="nav-logo-text">Cover King</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon" style="position:relative;" title="Search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+    <button class="nav-icon" style="position:relative;" title="Cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="nav-cart-count">3</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" style="padding-top:120px;">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Premium Mobile Protection</span>
+    </div>
+    <h1 class="hero-title">Reign Over<br><em>Every Drop.</em></h1>
+    <p class="hero-subtitle">Your Phone Deserves a Crown.</p>
+    <p class="hero-desc">From ultra-slim carbon fibre to military-grade rugged — Cover King curates cases that protect your device without compromising on style.</p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-primary">
+        Shop Now
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#categories" class="btn-ghost">Explore Collection</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Case Styles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Phone Brands</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="crown-container">
+      <div class="crown-glow"></div>
+      <div class="crown-ring crown-ring-1"></div>
+      <div class="crown-ring crown-ring-2"></div>
+      <div class="crown-ring crown-ring-3"></div>
+      <svg class="crown-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E2C98A"/>
+            <stop offset="50%" stop-color="#C9A96E"/>
+            <stop offset="100%" stop-color="#A8844A"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Base -->
+        <rect x="20" y="110" width="160" height="30" rx="4" fill="url(#crownGrad)" filter="url(#glow)"/>
+        <!-- Crown body -->
+        <path d="M20 110 L20 70 L50 95 L75 40 L100 15 L125 40 L150 95 L180 70 L180 110 Z" fill="url(#crownGrad)" filter="url(#glow)"/>
+        <!-- Gems -->
+        <circle cx="100" cy="15" r="9" fill="#F5ECD8" opacity="0.95"/>
+        <circle cx="100" cy="15" r="5" fill="white"/>
+        <circle cx="100" cy="15" r="2" fill="#C9A96E"/>
+        <circle cx="50" cy="78" r="6" fill="#F5ECD8" opacity="0.8"/>
+        <circle cx="50" cy="78" r="3" fill="white"/>
+        <circle cx="150" cy="78" r="6" fill="#F5ECD8" opacity="0.8"/>
+        <circle cx="150" cy="78" r="3" fill="white"/>
+        <!-- Details -->
+        <line x1="20" y1="110" x2="180" y2="110" stroke="#E2C98A" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="60" cy="115" r="3" fill="#E2C98A" opacity="0.7"/>
+        <circle cx="100" cy="115" r="3" fill="#E2C98A" opacity="0.7"/>
+        <circle cx="140" cy="115" r="3" fill="#E2C98A" opacity="0.7"/>
+      </svg>
+      <!-- Phone mockups -->
+      <div class="phone-1 phone-float">
+        <span class="phone-case-pattern">🌿</span>
+        <span class="phone-case-label">Nature</span>
+      </div>
+      <div class="phone-2 phone-float">
+        <span class="phone-case-pattern">⚡</span>
+        <span class="phone-case-label">Carbon</span>
+      </div>
+      <div class="phone-3 phone-float">
+        <span class="phone-case-pattern">💎</span>
+        <span class="phone-case-label">Crystal</span>
+      </div>
+      <div class="phone-4 phone-float">
+        <span class="phone-case-pattern">🛡️</span>
+        <span class="phone-case-label">Rugged</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- Duplicated for seamless loop -->
+    <span class="marquee-item">MagSafe Compatible <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Military-Grade Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Free Shipping ₹2000+ <span class="marquee-dot"></span></span>
+    <span class="marquee-item">iPhone 17 Series In Stock <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Carbon Kevlar Cases <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Samsung Galaxy S25 Cases <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Easy Returns <span class="marquee-dot"></span></span>
+    <span class="marquee-item">MagSafe Compatible <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Military-Grade Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Free Shipping ₹2000+ <span class="marquee-dot"></span></span>
+    <span class="marquee-item">iPhone 17 Series In Stock <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Carbon Kevlar Cases <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Samsung Galaxy S25 Cases <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Easy Returns <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- Categories -->
+<section class="categories" id="categories">
+  <div class="categories-header">
+    <div>
+      <div class="section-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Browse by Type</span>
+      </div>
+      <h2 class="section-title">Top Categories</h2>
+      <p class="section-subtitle">Every device deserves the right cover. Find yours.</p>
+    </div>
+    <a href="#products" class="btn-ghost">All Products</a>
+  </div>
+
+  <div class="categories-grid">
+    <a href="#" class="category-card">
+      <span class="category-icon">📱</span>
+      <div class="category-name">Mobile Covers</div>
+      <div class="category-count">400+ styles</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">⌚</span>
+      <div class="category-name">Watch Straps & Cases</div>
+      <div class="category-count">Apple & Samsung</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">🎧</span>
+      <div class="category-name">AirPods Cases</div>
+      <div class="category-count">Pro 1 · Pro 2 · Gen 4</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">💻</span>
+      <div class="category-name">Laptop Sleeves</div>
+      <div class="category-count">MacBook & others</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">🔲</span>
+      <div class="category-name">Tempered Glass</div>
+      <div class="category-count">All major models</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">🔋</span>
+      <div class="category-name">Power Banks</div>
+      <div class="category-count">MagSafe & wired</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">🖥️</span>
+      <div class="category-name">Tablet Covers</div>
+      <div class="category-count">iPad & Samsung Tab</div>
+      <span class="category-arrow">→</span>
+    </a>
+    <a href="#" class="category-card">
+      <span class="category-icon">🎵</span>
+      <div class="category-name">Gadgets</div>
+      <div class="category-count">EarPods · Neckbands</div>
+      <span class="category-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Hot Right Now</span>
+      </div>
+      <h2 class="section-title">Trending Products</h2>
+    </div>
+    <div class="products-filters">
+      <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setFilter(this,'iphone')">iPhone</button>
+      <button class="filter-btn" onclick="setFilter(this,'samsung')">Samsung</button>
+      <button class="filter-btn" onclick="setFilter(this,'pixel')">Pixel</button>
+    </div>
+  </div>
+
+  <div class="products-grid" id="product-grid">
+
+    <a href="#" class="product-card">
+      <div class="product-badge">50% Off</div>
+      <div class="product-image-wrap">
+        <span class="product-placeholder">⚙️</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">Iron Edge MagSafe Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹1,499</span>
+          <span class="product-price-old">₹2,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #1a1a1a, #0d0d1a);">
+        <span class="product-placeholder">🖤</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">Samsung Galaxy S Series</div>
+        <div class="product-name">iCon Carbon Kevlar Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹1,999</span>
+          <span class="product-price-old">₹2,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-badge">New</div>
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #1a1228, #0a0f1a);">
+        <span class="product-placeholder">💜</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">Beats Rugged MagSafe Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹1,999</span>
+          <span class="product-price-old">₹4,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #0a1a12, #0a0a0f);">
+        <span class="product-placeholder">💎</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">J-Case Crystal MagSafe Cover</div>
+        <div class="product-prices">
+          <span class="product-price">₹999</span>
+          <span class="product-price-old">₹1,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-badge">60% Off</div>
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #1a1000, #0a0a0f);">
+        <span class="product-placeholder">🌸</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">Icon Floral MagSafe Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹799</span>
+          <span class="product-price-old">₹1,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #0a1a1a, #0a0a0f);">
+        <span class="product-placeholder">🔋</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">MagSafe Power Bank</div>
+        <div class="product-name">Keephone Brendy 5000mAh Aramid</div>
+        <div class="product-prices">
+          <span class="product-price">₹2,799</span>
+          <span class="product-price-old">₹3,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #1a0a0a, #0a0a0f);">
+        <span class="product-placeholder">🔴</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">YoungKit Circuit Matte Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹1,699</span>
+          <span class="product-price-old">₹2,999</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+    <a href="#" class="product-card">
+      <div class="product-image-wrap" style="background: linear-gradient(135deg, #10180a, #0a0a0f);">
+        <span class="product-placeholder">🐱</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">iPhone 17 Series</div>
+        <div class="product-name">Nimmy Big Eyed Cat Print Case</div>
+        <div class="product-prices">
+          <span class="product-price">₹1,999</span>
+          <span class="product-price-old">₹3,599</span>
+        </div>
+      </div>
+      <div class="product-cta">Add to Cart</div>
+    </a>
+
+  </div>
+
+  <div style="text-align:center; margin-top:48px;">
+    <a href="#" class="btn-ghost" style="padding:14px 48px;">View All Products</a>
+  </div>
+</section>
+
+<!-- Brands -->
+<section class="brands" id="brands">
+  <div class="brands-inner">
+    <div class="brands-header">
+      <div class="brands-label">Compatible With Every Major Brand</div>
+      <h2 class="section-title" style="text-align:center; font-size:32px;">One Shop. All Brands.</h2>
+    </div>
+    <div class="brands-row">
+      <span class="brand-logo">Apple</span>
+      <span class="brand-logo">Samsung</span>
+      <span class="brand-logo">Google</span>
+      <span class="brand-logo">OnePlus</span>
+      <span class="brand-logo">Nothing</span>
+      <span class="brand-logo">Xiaomi</span>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section>
+  <div class="section-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span class="section-eyebrow-text">Why Cover King</span>
+  </div>
+  <h2 class="section-title">Crafted with Purpose</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <div class="feature-title">Military-Grade Drop Protection</div>
+      <p class="feature-desc">Our cases are tested to withstand drops from 2 metres — without adding bulk. Protection that doesn't compromise on form.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✦</div>
+      <div class="feature-title">Premium Materials Only</div>
+      <p class="feature-desc">Carbon Kevlar. Aluminium alloy frames. Crystal-clear polycarbonate. Every case is chosen for both feel and durability.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧲</div>
+      <div class="feature-title">MagSafe Ecosystem Ready</div>
+      <p class="feature-desc">All compatible cases feature precision-aligned magnets for seamless wireless charging and accessory attachment.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <div class="feature-title">Free Pan-India Shipping</div>
+      <p class="feature-desc">Orders above ₹2,000 ship free across India. Most orders reach you within 3–5 business days.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">↩️</div>
+      <div class="feature-title">Hassle-Free Returns</div>
+      <p class="feature-desc">Not satisfied? Return or exchange within 7 days. No questions asked. Your satisfaction is the royal standard.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👑</div>
+      <div class="feature-title">Curated, Not Mass-Produced</div>
+      <p class="feature-desc">Every product is hand-selected. We carry only what we'd use ourselves — no filler, no compromise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+  <div class="section-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span class="section-eyebrow-text">Customer Reviews</span>
+  </div>
+  <h2 class="section-title">What Our Customers Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">Absolutely loved the case quality. Arrived in 3 days with beautiful packaging. The carbon fibre finish feels incredible — it's like the phone itself levelled up.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Aman Jain</div>
+          <div class="author-city">Jaipur, Rajasthan</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">Bought the MagSafe power bank — completely seamless with my iPhone 16 Pro. Great battery life and the woven aramid finish looks stunning. Totally worth it!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">G</div>
+        <div>
+          <div class="author-name">Geeta Bhandari</div>
+          <div class="author-city">Udaipur, Rajasthan</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testimonial-text">Got an iPad sleeve for work — sleek, well-padded, and fits perfectly in my bag. The quality rivals cases costing three times the price. Cover King is the real deal.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">N</div>
+        <div>
+          <div class="author-name">Neelam Mittal</div>
+          <div class="author-city">Jaipur, Rajasthan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <div class="section-eyebrow" style="justify-content:center; margin-bottom:20px;">
+    <div class="hero-eyebrow-line"></div>
+    <span class="section-eyebrow-text">The Royal Collection</span>
+    <div class="hero-eyebrow-line"></div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:20px;">Your Device Deserves Better.</h2>
+  <p class="section-subtitle">Browse 500+ cases, straps, and tech accessories — curated for those who refuse to compromise.</p>
+  <a href="#products" class="btn-primary">
+    Shop the Collection
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:8px;">
+        <svg class="nav-logo-crown" viewBox="0 0 40 32" fill="none">
+          <path d="M4 28 L4 24 L8 12 L14 20 L20 6 L26 20 L32 12 L36 24 L36 28 Z" fill="#C9A96E"/>
+          <rect x="4" y="28" width="32" height="3" rx="1" fill="#C9A96E"/>
+          <circle cx="20" cy="6" r="2.5" fill="#E2C98A"/>
+        </svg>
+        <span class="nav-logo-text">Cover King</span>
+      </a>
+      <p>Whether you're shielding your devices or upgrading your gear, Cover King is where quality meets style.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-item"><span>📍</span> Ganpati Plaza, Mi Road, Jaipur</div>
+        <div class="footer-contact-item"><span>📞</span> +91 78770 33333</div>
+        <div class="footer-contact-item"><span>✉️</span> help@coverking.in</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-links">
+        <li><a href="#">All Cases</a></li>
+        <li><a href="#">iPhone Covers</a></li>
+        <li><a href="#">Samsung Cases</a></li>
+        <li><a href="#">AirPods Cases</a></li>
+        <li><a href="#">Tempered Glass</a></li>
+        <li><a href="#">Power Banks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Returns & Exchange</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Cover King. All rights reserved. Jaipur, India.</div>
+    <div class="footer-socials">
+      <a href="#" class="social-btn" title="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-btn" title="WhatsApp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setFilter(btn, type) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Smooth nav appearance on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.top = '0';
+      nav.querySelector('.nav-bg').style.borderBottomColor = 'rgba(201,169,110,0.25)';
+    } else {
+      nav.style.top = '32px';
+    }
+  });
+</script>
+</body>
+</html>
